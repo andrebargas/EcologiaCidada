@@ -1,0 +1,174 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<nav class="navbar">
+    <div class="container d-flex">
+      <a href="#" class="navbar-brand d-flex align-items-center" style="font-family:'Mali', cursive;">
+        <strong>Ciência Cidadã</strong>
+      </a>
+      <a href="divmidias"class="navbar-iten d-flex align-items-center" style="margin-bottom:0px; font-family:'Mali', cursive;">
+        midias
+      </a>
+      {% if user.is_authenticated %}
+      <a href="../data.csv">Download CSV File</a>
+      <a class="navbar-iten d-flex align-items-center" href="{% url 'logout'%}?next={{request.path}}">Logout</a>
+      {% else %}
+      <a href="#sobre"class="navbar-iten d-flex align-items-center" style="margin-bottom:0px; font-family:'Mali', cursive;">
+        sobre
+      </a>
+      <a href="{% url 'login'%}?next={{request.path}}"class="navbar-iten d-flex align-items-center" style="margin-bottom:0px; font-family:'Mali', cursive;">
+        login
+      </a>
+      {% endif %}
+    </div>
+  </div>
+</nav>
+
+<main role="main" style="font-family: 'Ubuntu', sans-serif;">
+
+  <section class="jumbotron text-center" style="margin-bottom:0; background-size: cover; background-image: url(https://images.unsplash.com/photo-1493752689441-72be47db3f91?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=64f4ba5e223d3c5bde4099967ea21a89&auto=format&fit=crop&w=751&q=80);">
+    <div class="container" style="color:white; font-family: 'Ubuntu', sans-serif;">
+      <h1 class="jumbotron-heading">Ciência Cidadã</h1>
+      <p>{{ submitions }}</p>
+      <p class="lead text Krub" >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eget odio est.
+        Vivamus volutpat interdum dui sit amet suscipit. Phasellus ac posuere dui. Donec ornare ac magna non porttitor.
+         In laoreet dictum eleifend. Aliquam erat volutpat. Mauris blandit nisl velit, vitae accumsan sapien condimentum
+         sed. Nulla facilisi. Morbi finibus imperdiet neque in ultrices.
+      </p>
+      <p>
+        <a href="midias/data_collector" class="btn btn-primary my-2">Baixe o aplicativo agora!</a>
+        <a href="midias/alfakit.pdf" class="btn btn-primary my-2" target="_blank">Manual de instruções do Alfakit</a>
+      </p>
+    </div>
+  </section>
+
+  <div class="bg-info">
+    <div class="album py-5 bg-light">
+      <div class="container">
+
+        <div class="row">
+          <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+              {% load static %}
+              <img class="card-img-top"alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" src="{% static "/images/fotosbrazilandia/DJI_0420_Moment 7.jpg" %}">
+              <div class="card-body">
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eget odio est.
+                  Vivamus volutpat interdum dui sit amet suscipit..</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button onclick="window.location.href='#sobre'" type="button" class="btn btn-sm btn-primary">Sobre o projeto</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+              <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" src="{% static "/images/fotosbrazilandia/DJI_0420_Moment 4.JPG" %}" style="height: 225px; width: 100%; display: block;">
+              <div class="card-body">
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eget odio est.
+                  Vivamus volutpat interdum dui sit amet suscipit..</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" onclick="window.location.href='#participe'" class="btn btn-sm btn-primary">Participe do projeto!!</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+              <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaMaAOgmBHsCiUwT1lP-zxKcaSKValpJYyyVgQqQubbrwXF4Ql" data-holder-rendered="true" style="height: 225px; width: 100%; display: block;">
+              <div class="card-body">
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eget odio est.
+                  Vivamus volutpat interdum dui sit amet suscipit..</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" onclick="window.location.href='#utilizacao'" class="btn btn-sm btn-primary">Como baixar e utilizar o aplicativo</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr>
+
+    <div class="container">
+      <div class="card" id="sobre">
+        <div class="card-header">
+          <h3 class="card-title text-center" >
+            Sobre o Projeto
+          </h2>
+        </div>
+        <div class="card-body">
+          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eget odio est.
+            Vivamus volutpat interdum dui sit amet suscipit. Phasellus ac posuere dui. Donec ornare ac magna non porttitor.
+             In laoreet dictum eleifend. Aliquam erat volutpat. Mauris blandit nisl velit, vitae accumsan sapien condimentum
+             sed. Nulla facilisi. Morbi finibus imperdiet neque in ultrices.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eget odio est.
+               Vivamus volutpat interdum dui sit amet suscipit. Phasellus ac posuere dui. Donec ornare ac magna non porttitor.
+                In laoreet dictum eleifend. Aliquam erat volutpat. Mauris blandit nisl velit, vitae accumsan sapien condimentum
+                sed. Nulla facilisi. Morbi finibus imperdiet neque in ultrices.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eget odio est.
+                  Vivamus volutpat interdum dui sit amet suscipit. Phasellus ac posuere dui. Donec ornare ac magna non porttitor.
+                   In laoreet dictum eleifend. Aliquam erat volutpat. Mauris blandit nisl velit, vitae accumsan sapien condimentum
+                   sed. Nulla facilisi. Morbi finibus imperdiet neque in ultrices.</p>
+          <a href="divmidias" class="btn btn-primary">Veja mais fotos</a>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="container">
+      <div class="card" id="participe">
+        <div class="card-header">
+          <h3 class="card-title text-center" >
+            Como contribuir para o projeto
+          </h3>
+        </div>
+        <div class="card-body">
+          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eget odio est.
+            Vivamus volutpat interdum dui sit amet suscipit. Phasellus ac posuere dui. Donec ornare ac magna non porttitor.
+            In laoreet dictum eleifend. Aliquam erat volutpat. Mauris blandit nisl velit, vitae accumsan sapien condimentum
+            sed. Nulla facilisi. Morbi finibus imperdiet neque in ultrices.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eget odio est.
+            Vivamus volutpat interdum dui sit amet suscipit. Phasellus ac posuere dui. Donec ornare ac magna non porttitor.
+            In laoreet dictum eleifend. Aliquam erat volutpat. Mauris blandit nisl velit, vitae accumsan sapien condimentum
+            sed. Nulla facilisi. Morbi finibus imperdiet neque in ultrices.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eget odio est.
+            Vivamus volutpat interdum dui sit amet suscipit. Phasellus ac posuere dui. Donec ornare ac magna non porttitor.
+            In laoreet dictum eleifend. Aliquam erat volutpat. Mauris blandit nisl velit, vitae accumsan sapien condimentum
+            sed. Nulla facilisi. Morbi finibus imperdiet neque in ultrices.</p>
+            <a href="http://35.237.4.221/api/sapelli/projects/4/sap/" class="btn btn-primary">Baixe o aplicativo aqui!</a>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="container">
+      <div class="card" id="utilizacao">
+        <div class="card-header">
+          <h3 class="card-title text-center" >
+            Como instalar e utilizar o Sapelli Collector
+          </h3>
+        </div>
+        <div class="card-body">
+          <p class="card-text">Para começar a contribuir com o projeto e utilizar o aplicativo de coleta de dados é muito facil, basta seguir os seguintes passos:</p>
+          <ul>
+            <li>Baixar o aplicativo Sapelli Collector disponivel <a href="https://play.google.com/store/apps/details?id=uk.ac.ucl.excites.sapelli.collector&hl=pt_BR"> AQUI</a> </li>
+            <li>Baixar o coletor de dados do projeto <a href="/midias/send_collector">AQUI</a>  </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <hr>
+  </div>
+</main>
+
+<footer class="text-muted">
+  <div class="container">
+    <p class="float-right">
+      <a href="#">Back to top</a>
+    </p>
+    <p>Ciência Cidadã - 2018</p>
+  </div>
+</footer>
+
+{% endblock %}
