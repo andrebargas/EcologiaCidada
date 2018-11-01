@@ -21,10 +21,32 @@ def data_parser(response):
         coordinate_y = row['geometry']['coordinates'][1]
         report_type = row['properties']['report_type']
 
-        if(report_type < 7):
+        if(report_type < 28):
             input = row['properties']['input']
+            if (report_type == 21):
+                report_type = "oxigenio dissolvido"
+            elif (report_type == 22):
+                report_type = "amonia"
+            elif (report_type == 23):
+                report_type = "nitrato"
+            elif (report_type == 24):
+                report_type = "nitrito"
+            elif (report_type == 25):
+                report_type = "ortofosfato"
+            elif (report_type == 26):
+                report_type = "nivel Ph"
+            else :
+                report_type = "temperatura"
         else:
             input = "NULL"
+            if (report_type == 28):
+                report_type = "esgoto"
+            elif (report_type == 29):
+                report_type = "lixo"
+            elif (report_type == 30):
+                report_type = "erosao"
+            else :
+                report_type = "outros"
 
         updated_at = row['meta']['updated_at']
         new_row = [contrib_id, device_id, coordinate_x, coordinate_y, report_type, input, updated_at]
@@ -41,7 +63,7 @@ def midias(request):
     return render(request, 'midias.html')
 
 def send_file(request):
-    gresponse = requests.get('http://35.237.4.221/api/projects/5/contributions/')
+    gresponse = requests.get('http://35.237.4.221/api/projects/6/contributions/')
     path = default_storage.save('midias/data.csv', ContentFile(data_parser(gresponse.content)))
     filename     = "midias/data.csv" # Select your file here.
     download_name ="data.csv"
@@ -57,14 +79,14 @@ def send_alfakit(request):
     filename     = "midias/alfakit/alfakit.pdf" # Select your file here.
     download_name ="alfakit.pdf"
     wrapper      = FileWrapper(open(filename))
-    content_type = mimetypes.guess_type(filename)[0]
+    content_type = mimetypes.guess_type(filename)
     response     = HttpResponse(wrapper,content_type=content_type)
     response['Content-Length']      = os.path.getsize(filename)
     response['Content-Disposition'] = "attachment; filename=%s"%download_name
     return response
 
 def send_collector(request):
-    filename     = "midias/app/Eco-Cidades-Braslandia v1.2.4.sap" # Select your file here.
+    filename     = "midias/app/Eco-Cidades-Braslandia v1.3.sap" # Select your file here.
     download_name ="Eco-Cidades-Braslandia v1.sap"
     wrapper      = FileWrapper(open(filename))
     content_type = mimetypes.guess_type(filename)[0]

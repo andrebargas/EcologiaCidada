@@ -9,13 +9,13 @@
       <a href="divmidias"class="navbar-iten d-flex align-items-center" style="margin-bottom:0px; font-family:'Mali', cursive;">
         midias
       </a>
+      <a href="#sobre"class="navbar-iten d-flex align-items-center" style="margin-bottom:0px; font-family:'Mali', cursive;">
+        sobre
+      </a>
       {% if user.is_authenticated %}
       <a href="../data.csv">Download CSV File</a>
       <a class="navbar-iten d-flex align-items-center" href="{% url 'logout'%}?next={{request.path}}">Logout</a>
       {% else %}
-      <a href="#sobre"class="navbar-iten d-flex align-items-center" style="margin-bottom:0px; font-family:'Mali', cursive;">
-        sobre
-      </a>
       <a href="{% url 'login'%}?next={{request.path}}"class="navbar-iten d-flex align-items-center" style="margin-bottom:0px; font-family:'Mali', cursive;">
         login
       </a>
@@ -66,14 +66,14 @@
           </div>
           <div class="col-md-4">
             <div class="card mb-4 shadow-sm">
-              <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" src="{% static "/images/fotosbrazilandia/DJI_0420_Moment 4.JPG" %}" style="height: 225px; width: 100%; display: block;">
+              <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" src="{% static "/images/fotosbrazilandia/img2.jpeg" %}" style="height: 225px; width: 100%; display: block;">
               <div class="card-body">
                 <p class="card-text">A melhor forma de contribuir é se voluntariar para realizar as coletas
                   de quantidade/qualidade de água na EPNBraz realizadas mensalmente com estudantes e professores
                   da escola...</p>
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group">
-                    <button type="button" onclick="window.location.href='#participe'" class="btn btn-sm btn-primary">Participe do projeto!!</button>
+                    <button type="button" onclick="window.location.href='#participe'" class="btn btn-sm btn-primary">Participe do projeto</button>
                   </div>
                 </div>
               </div>
@@ -138,7 +138,7 @@
             Outra forma de contribuir é realizando coletas nos rios e córregos próximos às residências dos
             colaboradores através de equipamentos de monitoramento de recursos hídricos à exemplo do ECOKIT da
             empresa Alfakit, o mesmo utilizado no projeto em questão.</p>
-            <a href="http://35.237.4.221/api/sapelli/projects/4/sap/" class="btn btn-primary">Baixe o aplicativo aqui!</a>
+            <a href="http://35.237.4.221/api/sapelli/projects/4/sap/" class="btn btn-primary">Baixe o aplicativo aqui</a>
         </div>
       </div>
     </div>
