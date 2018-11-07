@@ -10,4 +10,5 @@ urlpatterns = [
     url(r'^midias/alfakit', views.send_alfakit, name='send_alfakit'),
     url(r'^midias/data_collector', views.send_collector, name='send_collector'),
     url(r'^data', views.send_file, name='send_file'),
+    url(r'^manual', views.manual, name='manual'),
 ]
