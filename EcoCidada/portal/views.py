@@ -66,6 +66,9 @@ def midias(request):
 def manual(request):
     return render(request, 'manual.html')
 
+def resultados(request):
+    return render(request, 'resultados.html')
+
 def send_file(request):
     gresponse = requests.get('http://35.237.4.221/api/projects/6/contributions/')
     path = default_storage.save('midias/data.csv', ContentFile(data_parser(gresponse.content)))

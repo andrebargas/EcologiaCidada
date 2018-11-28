@@ -11,4 +11,5 @@ urlpatterns = [
     url(r'^midias/data_collector', views.send_collector, name='send_collector'),
     url(r'^data', views.send_file, name='send_file'),
     url(r'^manual', views.manual, name='manual'),
+    url(r'^resultados', views.resultados, name='resultados'),
 ]
